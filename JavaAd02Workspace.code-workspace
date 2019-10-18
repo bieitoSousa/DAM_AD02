@@ -1,0 +1,28 @@
+{
+"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"window.zoomLevel": -1,
+		"files.autoSave": "afterDelay",
+		"githubPullRequests.remotes": [
+			"origin",
+			"upstream",
+			"https://github.com/bieitoSousa/DAW_AD02"
+		],
+		"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+		"git.autofetch": true,
+		//"workbench.iconTheme": "material-icon-theme",
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		//"workbench.Theme":"jprestidge.theme-material-theme",
+		"workbench.colorTheme": "NetBeans Light Theme",
+		//"workbench.colorTheme": "NetBeans Light Theme"
+		 "workbench.iconTheme": "file-icons",
+		"workbench.settings.editor": "json",
+		"editor.wordWrap": "on"
+	}
+}
