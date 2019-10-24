@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "DAM_AD02",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true
+		}
+	}
+}
