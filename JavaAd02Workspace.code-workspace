@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"window.zoomLevel": -1,
+		"window.zoomLevel": 1,
 		"files.autoSave": "afterDelay",
 		"githubPullRequests.remotes": [
 			"origin",
