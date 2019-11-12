@@ -1,28 +1,34 @@
 package app.AD02;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Tienda extends Compañia{
 Tienda t = null;
  ArrayList clientList;
  ArrayList productosList;
  ArrayList empleadosList;
- 
+ Stack<String[][]> STACK = new Stack<String[][]>(); 
+  
+	private String ciu;
+	private String nom;
 
 
 	public Tienda(String nom, String cidade) {
+		this.nom = nom;
+		this.ciu = cidade;
 	}
 
 	public static Tienda cargarTienda() {
 		return null;
 	}
 
-
-
 	public void deleteTienda(String nom) {
+	
 	}
 
 	public void addProducto(String idProducto) {
+	 
 	}
 
 	public void setProducto(String idProducto, String descripción, int prezo, int cantidade) {
