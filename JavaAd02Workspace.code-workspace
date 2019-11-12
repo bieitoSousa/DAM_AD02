@@ -23,6 +23,8 @@
 		//"workbench.colorTheme": "NetBeans Light Theme"
 		 "workbench.iconTheme": "file-icons",
 		"workbench.settings.editor": "json",
-		"editor.wordWrap": "on"
+		"editor.wordWrap": "on",
+		"java.dependency.packagePresentation": "hierarchical",
+		"maven.view": "hierarchical"
 	}
 }

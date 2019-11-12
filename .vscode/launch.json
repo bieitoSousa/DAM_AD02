@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - lee_json",
+            "request": "launch",
+            "mainClass": "app.AD02.archivos.lee_json",
+            "projectName": "AD02"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - lee_json",
+            "request": "launch",
+            "mainClass": "app.AD02.lee_json",
+            "projectName": "AD02"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - App",
             "request": "launch",
             "mainClass": "app.App",
