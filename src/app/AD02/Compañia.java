@@ -1,4 +1,6 @@
 package app.AD02;
+import java.util.*;
+import app.AD02.*;
 public class Compañia {
  String name = "Franquicia bieito";
  LinkedHashMap<String, Tienda> mapTienda = new LinkedHashMap<>();
@@ -10,23 +12,25 @@ public class Compañia {
     createCatalogoProd();
 } 
 
-static getInstance(){
-    instCompañia= cargarCompañia();
-    if (instCompañia == NULL){
-       instCompañia = new Compañia ();
-    }
-     return instCompañia;
-}
+// public static Compañia getInstance(){
+//     //cargarCompañia();
+//     if (instCompañia == null){
+//        instCompañia = new Compañia ();
+//     }
+//      return instCompañia;
+// }
 
-static public Compañia cargarCompañia(){
- // recupero el Objeto de datos.backap
-}
+// static public void cargarCompañia(){
+//  // recupero el Objeto de datos.backap
+//  instCompañia =null; 
+// }
 
-public backup(){
+public void backup(){
  // sobreescribo datos en : datos.backap
+ System.out.print("sobreescribo datos en : datos.backap");
 }
 
-  private createCatalogoProd ( ){
+  private void createCatalogoProd ( ){
     Producto p1 = new Producto(1,"a1",11);catalogoProductos.put(new Integer(p1.getIdProducto()),p1);
     Producto p2 = new Producto(2,"a2",12);catalogoProductos.put(new Integer(p2.getIdProducto()),p2);
     Producto p3 = new Producto(3,"a3",13);catalogoProductos.put(new Integer(p3.getIdProducto()),p3);
@@ -45,13 +49,13 @@ Tienda addTienda ( String nomTienda, String nomCidade ){
     return getTienda(nomTienda);
 }
 
-Tienda deleteTienda ( String nomTienda ){
+public  void deleteTienda ( String nomTienda ){
     Tienda t = getTienda(nomTienda);
     t.deleteAllEmpleado();
     t.deleteAllProductos();
 }
 
-Tienda getTienda ( String nomTienda){
+public Tienda getTienda ( String nomTienda){
     return (Tienda) mapTienda.get(nomTieda);
 }
 
@@ -62,7 +66,7 @@ public void viewTiendaList() {
 }
 
 
-public Tineda  getTSelecct(){
+public Tienda  getTSelecct(){
 	return 	this.tSelecct ;
 	}
 

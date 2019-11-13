@@ -2,13 +2,17 @@ package app.AD02;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.*;
+import app.AD02.*;
+import app.AD02.Producto;
 
 public class AD02 {
     public static void main(String[] args) throws Exception {
         Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
         int op;
         boolean salir = false;
-        Compañia c = Compañia.getInstance(); 
+        //Compañia c = Compañia.getInstance();; 
+        Compañia c = new Compañia();
         Tienda t = null;
         while (!salir) {
 
@@ -36,14 +40,21 @@ public class AD02 {
 
                     System.out.print(" Creando una tienda dime: .\n");
                     System.out.print(" nombre  ? .\n");
-                    String nom = reader.nextLine();
-                    System.out.print("cidade ? .\n");
-                    String cidade = reader.nextLine();
-                    c.viewTiendaList();
-                    c.addTienda(nom,cidade);
-                    c.setTSelecct=c.getTienda(nom); 
-                    t=c.getTSelecct();
-                    System.out.print("Se a creado unha tenda:\n" + t.toString());
+                    String nom; 
+                    String ciu;
+                    if((nom =reader.nextLine()) != null){
+                        System.out.print("cidade ? .\n");
+                    
+                    if((ciu= reader.nextLine())!= null ){
+                        c.viewTiendaList();
+                        c.addTienda(nom,ciu);
+                        c.setTSelecct(c.getTienda(nom));
+                       
+                        t=c.getTSelecct();
+                        System.out.print("Se a creado unha tenda:\n" + t.toString());
+
+                    }}
+
                     break;
                 case 2:
                     if (t != null) {
@@ -60,7 +71,7 @@ public class AD02 {
                     if (t != null) {
                         t.viewProductosList();
                         System.out.print(" introduzca id del producto.\n");
-                        int  idProducto = reader.nextLine();
+                        int  idProducto = reader.nextInt();
                         t.addProducto(idProducto);
                         System.out.print(" SE ha engadir un producto a tenda.\n");
                     } else {
@@ -71,7 +82,7 @@ public class AD02 {
                     if (t != null) {
                         t.viewProductosList();
                         System.out.print(" introduzca id del producto.\n");
-                        int idProducto = reader.nextLine();
+                        int idProducto = reader.nextInt();
                         t.deleteProducto(idProducto);
                         System.out.print("4. - Eliminiar un producto a tenda.\n");
                     } else {
@@ -86,7 +97,7 @@ public class AD02 {
                         System.out.print(" introduzca apellido del empleado.\n");
                         String apelEmp = reader.nextLine();
                         t.addEmpregado(nomEmp, apelEmp);
-                        t.setEmpleado(nomEmp, apelEmp);
+                       
                         System.out.print("Se añadido un empleado.\n");
                     } else {
                         System.out.print("Primero deves de crear una tienda");

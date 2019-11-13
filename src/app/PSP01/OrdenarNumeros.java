@@ -17,7 +17,8 @@ public class OrdenarNumeros {
 
 	public static void main(String[] args) {
         OrdenarNumeros order = new OrdenarNumeros();
-        order.orNum(order.LeerIntEntradaEstandar(),true);
+        //order.orNum(order.LeerIntEntradaEstandar(),true);
+        
     }
     int[] orNum(int[] arryNum, boolean asc) {
         int [] res = arryNum; 

@@ -2,11 +2,13 @@ package app.AD02;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.*;
+import app.AD02.*;
 
 public class Tienda extends Compañia{
 Tienda tSelecct = null;
 LinkedHashMap<String, Empleado> mapEmpleado = new LinkedHashMap<>();
-LinkedHashMap<String, Producto> mapProducto = new LinkedHashMap<>();
+LinkedHashMap<Integer, Producto> mapProducto = new LinkedHashMap<>();
 LinkedHashMap<String, Cliente> mapCliente = new LinkedHashMap<>();
   
 	private String nombre;
@@ -33,7 +35,7 @@ LinkedHashMap<String, Cliente> mapCliente = new LinkedHashMap<>();
 	*/
 	public void addProducto(int idProducto) {
 		// introduzco en mi mapaProductos un objeto del catalogo de la Compañia
-		mapProducto.put(idProducto, catalogoProductos.get(idProducto)); 
+		mapProducto.put(new Integer(idProducto), (Producto) catalogoProductos.get(new Integer(idProducto))); 
 	}
 
 	public void setProductoCantidad(int idProducto, int cantidade) {

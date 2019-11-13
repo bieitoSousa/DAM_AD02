@@ -6,14 +6,14 @@ public class Producto {
     int cantidade;
 
 
-    public Producto(int idProducto, String nombre, int prezo, int cantidade) {
+    public Producto(int idProducto, String nombre, int prezo) {
         this.idProducto = idProducto;
-        this.nombre = descripción;
+        this.nombre = nombre;
         this.prezo = prezo;
-        this.cantidade = cantidade;
+        
     }
 
-    public String getIdProducto() {
+    public int getIdProducto() {
         return idProducto;
     }
 

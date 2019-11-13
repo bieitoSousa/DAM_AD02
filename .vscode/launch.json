@@ -2,6 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - PSP01",
+            "request": "launch",
+            "mainClass": "app.PSP01.PSP01"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aleatorios",
+            "request": "launch",
+            "mainClass": "app.PSP01.Aleatorios"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - AD02",
             "request": "launch",
             "mainClass": "app.AD02.AD02"
