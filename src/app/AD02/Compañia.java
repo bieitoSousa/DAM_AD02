@@ -1,42 +1,74 @@
 package app.AD02;
 public class Compañia {
  String name = "Franquicia bieito";
- String [][] productos ={    
-    { "a1", "11" },
-    { "a2", "12" },
-    { "a3", "13" },
-    { "a4", "14" },
-    { "a5", "15" },
-    { "a6", "16" },
-    { "a7", "17" },
-    { "a8", "18" },
-    { "a9", "19" },
-    { "b1", "21" },
-    { "b2", "22" },
-    { "b3", "23" },
-    { "b4", "24" },
-    { "b5", "25" },
-    { "b6", "26" },
-    { "b7", "27" },
-    { "b8", "28" },
-    { "b9", "29" }
-};
- int getPrecioProduct(String idProducto){
-     int precio = -1;
-    for (int i = 0; i < this.productos.length; i++){
-       if(idProducto.equals( this.productos[i][0])){
-            precio = Integer.parseInt(this.productos[0][i]);
-       } 
-    }  
-    return precio;
-}
-boolean productExist(String idProducto){
-    for (int i = 0; i < this.productos.length; i++){
-        if(idProducto.equals( this.productos[i][0])){
-             return true;
-        }  
+ LinkedHashMap<String, Tienda> mapTienda = new LinkedHashMap<>();
+ LinkedHashMap<Integer , Producto> catalogoProductos = new LinkedHashMap<>();
+ static Compañia instCompañia;
+ public static Tienda tiendaSeleccionada;
+ Tienda tSelecct = null;
+ public Compañia(){
+    createCatalogoProd();
+} 
+
+static getInstance(){
+    instCompañia= cargarCompañia();
+    if (instCompañia == NULL){
+       instCompañia = new Compañia ();
     }
-    return false;
+     return instCompañia;
 }
+
+static public Compañia cargarCompañia(){
+ // recupero el Objeto de datos.backap
+}
+
+public backup(){
+ // sobreescribo datos en : datos.backap
+}
+
+  private createCatalogoProd ( ){
+    Producto p1 = new Producto(1,"a1",11);catalogoProductos.put(new Integer(p1.getIdProducto()),p1);
+    Producto p2 = new Producto(2,"a2",12);catalogoProductos.put(new Integer(p2.getIdProducto()),p2);
+    Producto p3 = new Producto(3,"a3",13);catalogoProductos.put(new Integer(p3.getIdProducto()),p3);
+    Producto p4 = new Producto(4,"a4",14);catalogoProductos.put(new Integer(p4.getIdProducto()),p4);
+    Producto p5 = new Producto(5,"a5",15);catalogoProductos.put(new Integer(p5.getIdProducto()),p5);
+    Producto p6 = new Producto(6,"a6",16);catalogoProductos.put(new Integer(p6.getIdProducto()),p6);
+    Producto p7 = new Producto(7,"a7",17);catalogoProductos.put(new Integer(p7.getIdProducto()),p7);
+    Producto p8 = new Producto(8,"a8",18);catalogoProductos.put(new Integer(p8.getIdProducto()),p8);
+    Producto p9 = new Producto(9,"a9",19);catalogoProductos.put(new Integer(p9.getIdProducto()),p9);
+    Producto p10 = new Producto(10,"b1",20);catalogoProductos.put(new Integer(p10.getIdProducto()),p10);
+    Producto p11 = new Producto(11,"b2",21);catalogoProductos.put(new Integer(p11.getIdProducto()),p11);
+  }
+
+Tienda addTienda ( String nomTienda, String nomCidade ){
+     mapTienda.put(nomTienda,new Tienda(nomTienda , nomCidade));
+    return getTienda(nomTienda);
+}
+
+Tienda deleteTienda ( String nomTienda ){
+    Tienda t = getTienda(nomTienda);
+    t.deleteAllEmpleado();
+    t.deleteAllProductos();
+}
+
+Tienda getTienda ( String nomTienda){
+    return (Tienda) mapTienda.get(nomTieda);
+}
+
+public void viewTiendaList() {
+    for (String k : mapTienda.keySet()) {
+        System.out.println(k + ". " + mapTienda.get(k).getNombre() + " (" + mapTienda.get(k).getCiudad() + ")");
+    }
+}
+
+
+public Tineda  getTSelecct(){
+	return 	this.tSelecct ;
+	}
+
+public void setTSelecct(Tienda t){
+    this.tSelecct = t;
+}
+
 
 }
