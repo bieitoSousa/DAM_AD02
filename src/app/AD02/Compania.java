@@ -6,12 +6,14 @@ import com.google.gson.annotations.JsonAdapter;
 import java.io. *;
 import app.AD02. *;
 import app.AD02.archivos. *;
+import app.AD02.Json.*;
+import app.AD02.XML.*;
+
 
 public class Compania {
     String name = "Franquicia bieito";
-    LinkedHashMap<String, Tienda> mapTienda = new LinkedHashMap();
-    LinkedHashMap < Integer,
-    Producto > catalogoProductos = new LinkedHashMap();
+    LinkedHashMap<String, Tienda> mapTienda = new LinkedHashMap<>();
+    LinkedHashMap < Integer, Producto > catalogoProductos = new LinkedHashMap<>();
     public static Tienda tiendaSeleccionada;
     private static Compania companiaAux;
     // Tienda tSelecct = null;
@@ -109,6 +111,9 @@ public class Compania {
     public void setTSelecct(Tienda t) {
         tiendaSeleccionada = t;
     }
+	public void leerTitulares() {
+        ReadXML.main(args);
+	}
 
 
 }
