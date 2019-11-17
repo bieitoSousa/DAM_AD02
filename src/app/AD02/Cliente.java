@@ -9,7 +9,7 @@ public class Cliente {
 
     public Cliente(String nomCliente,String apellidoCliente, String mailCliente ) {
         this.nomCliente = nomCliente;
-        this.idCliente = this.count++;
+        this.idCliente = count++;
         this.mailCliente = mailCliente;
         this.apellidoCliente = apellidoCliente;
     }

@@ -2,6 +2,25 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ReadXML",
+            "request": "launch",
+            "mainClass": "app.AD02.ReadXML",
+            "projectName": "1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JSonMake",
+            "request": "launch",
+            "mainClass": "app.AD02.archivos.JSonMake"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Compania",
+            "request": "launch",
+            "mainClass": "app.AD02.Compania"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - PSP01",
             "request": "launch",
             "mainClass": "app.PSP01.PSP01"

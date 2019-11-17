@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.*;
 import app.AD02.*;
 import app.AD02.Producto;
+import app.AD02.AD02.*;
 
 public class AD02 {
     public static void main(String[] args) throws Exception {
@@ -12,7 +13,7 @@ public class AD02 {
         int op;
         boolean salir = false;
         //Compañia c = Compañia.getInstance();; 
-        Compañia c = new Compañia();
+        Compania c = new Compania();
         Tienda t = null;
         while (!salir) {
 
