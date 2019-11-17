@@ -40,28 +40,19 @@ public class AD02 {
                 case 1:
 
                     System.out.print(" Creando una tienda dime: .\n");
-                    System.out.print(" nombre  ? .\n");
-                    String nom; 
-                    String ciu;
-                    if((nom =reader.nextLine()) != null){
-                        System.out.print("cidade ? .\n");
-                    
-                    if((ciu= reader.nextLine())!= null ){
+                    String nom = HelpFunctions.inputString("nombre ? .\n");
+                    String ciu = HelpFunctions.inputString("cidade ? .\n");
                         c.viewTiendaList();
                         c.addTienda(nom,ciu);
                         c.setTSelecct(c.getTienda(nom));
                        
                         t=c.getTSelecct();
                         System.out.print("Se a creado unha tenda:\n" + t.toString());
-
-                    }}
-
                     break;
                 case 2:
                     if (t != null) {
-                        System.out.print(" introduzca nombre de la tienda.\n");
                         c.viewTiendaList();
-                        String nomTienda = reader.nextLine();
+                        String nomTienda = HelpFunctions.inputString(" introduzca nombre de la tienda.\n");
                         c.deleteTienda(nomTienda);
                         System.out.print(" Se ha eliminado la tienda" + nomTienda + ").\n");
                     } else {
@@ -71,8 +62,7 @@ public class AD02 {
                 case 3:
                     if (t != null) {
                         t.viewProductosList();
-                        System.out.print(" introduzca id del producto.\n");
-                        int  idProducto = reader.nextInt();
+                        int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
                         t.addProducto(idProducto);
                         System.out.print(" SE ha engadir un producto a tenda.\n");
                     } else {
@@ -82,8 +72,7 @@ public class AD02 {
                 case 4:
                     if (t != null) {
                         t.viewProductosList();
-                        System.out.print(" introduzca id del producto.\n");
-                        int idProducto = reader.nextInt();
+                        int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
                         t.deleteProducto(idProducto);
                         System.out.print("4. - Eliminiar un producto a tenda.\n");
                     } else {
@@ -93,10 +82,8 @@ public class AD02 {
                 case 5:
                     if (t != null) {
                         t.viewEmpregadoList();
-                        System.out.print(" introduzca nombre del empleado.\n");
-                        String nomEmp = reader.nextLine();
-                        System.out.print(" introduzca apellido del empleado.\n");
-                        String apelEmp = reader.nextLine();
+                        String nomEmp = HelpFunctions.inputString(" introduzca nombre del empleado.\n");
+                        String apelEmp = HelpFunctions.inputString(" introduzca apellido del empleado.\n");
                         t.addEmpregado(nomEmp, apelEmp);
                        
                         System.out.print("Se añadido un empleado.\n");
@@ -107,8 +94,7 @@ public class AD02 {
                 case 6:
                     if (t != null) {
                         t.viewEmpregadoList();
-                        System.out.print(" introduzca nombre del empleado.\n");
-                        String nomEmp = reader.nextLine();
+                        String nomEmp =  HelpFunctions.inputString(" introduzca nombre del empleado.\n");
                         t.deleteEmpregado(nomEmp);
                         System.out.print("6. - Eliminar un empregado a tenda.\n");
                     } else {
@@ -118,12 +104,9 @@ public class AD02 {
                 case 7:
                     if (t != null) {
                         t.viewClienteList();
-                        System.out.print(" introduzca nombre del cliente.\n");
-                        String nomCli = reader.nextLine();
-                        System.out.print(" introduzca apellido del cliente.\n");
-                        String apelCli = reader.nextLine();
-                        System.out.print(" introduzca email del cliente.\n");
-                        String mailCli = reader.nextLine();
+                        String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
+                        String apelCli = HelpFunctions.inputString(" introduzca apellido del cliente.\n");
+                        String mailCli = HelpFunctions.inputString(" introduzca email del cliente.\n");
                         t.addCliente(nomCli, apelCli, mailCli);
                         System.out.print(" Se ha añadido un cliente.");
                     } else {
@@ -133,8 +116,7 @@ public class AD02 {
                 case 8:
                     if (t != null) {
                         t.viewClienteList();
-                        System.out.print(" introduzca nombre del cliente.\n");
-                        String nomCli = reader.nextLine();
+                        String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
                         t.deleteCliente(nomCli);
                         System.out.print("8. - Eliminar un cliente.");
                     } else {
@@ -150,7 +132,7 @@ public class AD02 {
                     }
                     break;
                 case 10:
-                    leerTitulares();
+                    c.leerTitulares();
                     System.out.print("10. - Ler os titulares do periódico El País. (Explícase máis abaixo)");
                     break;
                 default:
@@ -167,8 +149,6 @@ public class AD02 {
 
     }
 
-    private static void leerTitulares() {
-        System.out.println("leyendo titulares");
-    }
+
 
 }
