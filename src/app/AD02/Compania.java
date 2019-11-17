@@ -5,7 +5,6 @@ import com.google.gson.annotations.JsonAdapter;
 
 import java.io. *;
 import app.AD02. *;
-import app.AD02.archivos. *;
 import app.AD02.Json.*;
 import app.AD02.XML.*;
 
@@ -112,7 +111,7 @@ public class Compania {
         tiendaSeleccionada = t;
     }
 	public void leerTitulares() {
-        ReadXML.main(args);
+        ReadXML.read();
 	}
 
 
