@@ -6,49 +6,65 @@ import java.util.*;
 import java.io.*;
 
 public class HelpFunctions {
+    
 
-    public static int inputInt(String mensaje) {
-        Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
-        int op = -1;
 
-        boolean salir = false;
-        while (!salir) {
-            System.out.println(mensaje);
-            try {
-                op = reader.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                reader.next();
-            } catch (Exception f) {
-                f.getMessage();
-            }
-            salir = true;
-        }
-        reader.close(); // Cerramos el objeto Scanner
+    public static void main(String[] args) throws Exception {
+       int letra1 = inputInt("dimeletra 1");
+       int letra2 = inputInt("dimeletra 1");
+       int letra3 = inputInt("dimeletra 1");
+       int letra4 = inputInt("dimeletra 1");
+       System.out.println(letra1+letra2+letra3+letra4);
+  
 
-        return op;
     }
+
+
+
+    // public static int inputInt(String mensaje) {
+    //     Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
+    //     int op = -1;
+
+    //     boolean salir = false;
+    //     while (!salir) {
+    //         System.out.println(mensaje);
+    //         try {
+    //             op = reader.nextInt();
+    //         } catch (InputMismatchException e) {
+    //             System.out.println("Debes insertar un número");
+    //             reader.next();
+    //         } catch (Exception f) {
+    //             f.getMessage();
+    //         }
+    //         salir = true;
+    //     }
+    //     reader.close(); // Cerramos el objeto Scanner
+
+    //     return op;
+    // }
 
     public static String inputString(String mensaje) {
-        Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
-        String op = "NULL";
-        boolean salir = false;
-        while (!salir) {
-            System.out.println(mensaje);
-            try {
-                op = reader.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                reader.next();
-            } catch (Exception f) {
-                f.getMessage();
-            }
-            salir = true;
+        Scanner reader = new Scanner(System.in);
+        System.out.print(mensaje);
+    
+        while (!reader.hasNextLine()) {
+            System.out.print(mensaje);
+            reader.next();
         }
-        reader.close(); // Cerramos el objeto Scanner
-
-        return op;
+        return reader.nextLine();
     }
+        //reader.close(); // Cerramos el objeto Scanner
+
+    public static int inputInt(String mensaje) {
+            Scanner reader = new Scanner(System.in);
+            System.out.print(mensaje);
+        
+            while (!reader.hasNextInt()) {
+                System.out.print(mensaje);
+                reader.next();
+            }
+            return reader.nextInt();
+        }
 
     public static void writeOnFile(File f, String[] lineas) {
         FileWriter fichero = null;

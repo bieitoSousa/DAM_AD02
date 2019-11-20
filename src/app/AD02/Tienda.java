@@ -49,19 +49,25 @@ public class Tienda extends Compania {
 
 
     public void viewProductosList() {
+        System.out.println("Los Productos de la tienda "+this.nombre+"son :");
         for (int k : mapProducto.keySet()) {
             System.out.println(k + ". " + mapProducto.get(k).getNombre() + " (" + mapProducto.get(k).getPrezo() + ")");
         }
+        System.out.println("_____________________________________________________");
     }
     public void viewEmpregadoList() {
+        System.out.println("Los Empleados de la tienda "+this.nombre+"son :");
         for (String k : mapEmpleado.keySet()) {
             System.out.println(k + ". " + mapEmpleado.get(k).getNomEmpleado() + " (" + mapEmpleado.get(k).getApellidoEmpleado() + ")");
         }
+        System.out.println("_____________________________________________________");
     }
     public void viewClienteList() {
+        System.out.println("Los Clientes de la tienda "+this.nombre+"son :");
         for (String k : mapCliente.keySet()) {
             System.out.println(k + ". " + mapCliente.get(k).getNomCliente() + " (" + mapCliente.get(k).getMailCliente() + ")");
         }
+        System.out.println("_____________________________________________________");
     }
 
     /*Operaciones Empleado [    
@@ -113,6 +119,10 @@ public class Tienda extends Compania {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String toString(){
+        return "nombre => ["+this.nombre + "]  ciudad => ["+this.ciudad+"]";
     }
 
 }

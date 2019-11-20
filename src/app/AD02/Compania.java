@@ -101,7 +101,13 @@ public class Compania {
             System.out.println(k + ". " + mapTienda.get(k).getNombre() + " (" + mapTienda.get(k).getCiudad() + ")");
         }
     }
-
+    public void viewCatProducto() {
+        System.out.println(" _______Catalogo__Productos___Compañia_________________");
+        for (int k : catalogoProductos.keySet()) {
+            System.out.println("id =>[ "+k + "] nombre => [" + catalogoProductos.get(k).getNombre() + " ] prezo =>  [" + catalogoProductos.get(k).getPrezo() + "]");
+        }
+        System.out.println("_____________________________________________________");
+    }
 
     public Tienda getTSelecct() {
         return tiendaSeleccionada;

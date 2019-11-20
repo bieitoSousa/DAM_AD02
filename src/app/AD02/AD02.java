@@ -19,7 +19,7 @@ public class AD02 {
 
             System.out.println(
 
-                    "1. - Engadir unha tenda.\n"
+                    "\n1. - Engadir unha tenda.\n"
                             + "2. - Eliminar unha tenda (elimínanse tódolos productos e empragados desta).\n"
                             + "3. - Engadir un producto a tenda.\n" + "4. - Eliminiar un producto a tenda.\n"
                             + "5. - Engadir un empregado a tenda.\n" + "6. - Eliminar un emprega a tenda.\n"
@@ -38,14 +38,13 @@ public class AD02 {
                     salir = true;
                     break;
                 case 1:
-
-                    System.out.print(" Creando una tienda dime: .\n");
-                    String nom = HelpFunctions.inputString("nombre ? .\n");
-                    String ciu = HelpFunctions.inputString("cidade ? .\n");
+                    
+                    System.out.println(" Creando una tienda dime: .\n");
+                     String nom = HelpFunctions.inputString("nombre ? ");
+                     String ciu = HelpFunctions.inputString("cidade ? ");
                         c.viewTiendaList();
                         c.addTienda(nom,ciu);
                         c.setTSelecct(c.getTienda(nom));
-                       
                         t=c.getTSelecct();
                         System.out.print("Se a creado unha tenda:\n" + t.toString());
                     break;
@@ -61,6 +60,7 @@ public class AD02 {
                     break;
                 case 3:
                     if (t != null) {
+                        c.viewCatProducto();
                         t.viewProductosList();
                         int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
                         t.addProducto(idProducto);
