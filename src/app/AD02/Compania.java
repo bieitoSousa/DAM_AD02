@@ -97,9 +97,11 @@ public class Compania {
     }
 
     public void viewTiendaList() {
+        System.out.println("Las tiendas disponibles de "+ this.name + "son :");
         for (String k : mapTienda.keySet()) {
-            System.out.println(k + ". " + mapTienda.get(k).getNombre() + " (" + mapTienda.get(k).getCiudad() + ")");
+            System.out.println("id =>[ "+k + "] nombre => [" + mapTienda.get(k).getNombre() + " ]  ciudad=> [" + mapTienda.get(k).getCiudad() + "]");
         }
+        System.out.println("_____________________________________________________");
     }
     public void viewCatProducto() {
         System.out.println(" _______Catalogo__Productos___Compañia_________________");
@@ -119,6 +121,9 @@ public class Compania {
 	public void leerTitulares() {
         ReadXML.read();
 	}
+	public String toString(){
+        return this.name;
+    }
 
 
 }

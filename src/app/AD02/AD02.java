@@ -11,21 +11,33 @@ public class AD02 {
     public static void main(String[] args) throws Exception {
         Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
         int op;
+        String encabezado="";
         boolean salir = false;
         //Compañia c = Compañia.getInstance();; 
-        Compania c = new Compania();
+        Compania c = Compania.getInstance();
         Tienda t = null;
+       
         while (!salir) {
-
+            if(c != null){encabezado += "\nBienvenidos a la franquicia  "+c.toString();}
+            if(t != null){
+                encabezado += "\nTienda selecionada "+t.toString();
+                     }else {
+                         if(!c.mapTienda.isEmpty()){
+                             encabezado += "\n Porfavor cree o seleccione una tienda.";
+                            }else{
+                                    encabezado += "\n Porfavor cree  una tienda";
+                     }   
+            }
             System.out.println(
-
-                    "\n1. - Engadir unha tenda.\n"
-                            + "2. - Eliminar unha tenda (elimínanse tódolos productos e empragados desta).\n"
-                            + "3. - Engadir un producto a tenda.\n" + "4. - Eliminiar un producto a tenda.\n"
-                            + "5. - Engadir un empregado a tenda.\n" + "6. - Eliminar un emprega a tenda.\n"
-                            + "7. - Engadir un cliente.\n" + "8. - Eliminar un cliente.\n"
-                            + "9. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).\n"
-                            + "10. - Ler os titulares do periódico El País. (Explícase máis abaixo)\n"
+                            encabezado
+                            +"\n1. - Selecionar una tenda.\n"
+                            + "2. - Engadir unha tenda.\n"
+                            + "3. - Eliminar unha tenda (elimínanse tódolos productos e empragados desta).\n"
+                            + "4. - Engadir un producto a tenda.\n" + "5. - Eliminiar un producto a tenda.\n"
+                            + "6. - Engadir un empregado a tenda.\n" + "7. - Eliminar un emprega a tenda.\n"
+                            + "8. - Engadir un cliente.\n" + "9. - Eliminar un cliente.\n"
+                            + "10. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).\n"
+                            + "11. - Ler os titulares do periódico El País. (Explícase máis abaixo)\n"
                             + "0. - Sair do programa.\n"
 
             );
@@ -38,7 +50,15 @@ public class AD02 {
                     salir = true;
                     break;
                 case 1:
-                    
+                c.viewTiendaList();
+                System.out.println(" Seleccione una tienda : .\n");
+                String nomb = HelpFunctions.inputString("digame el nombre de la tienda ? ");
+                c.setTSelecct(c.getTienda(nomb));
+                t=c.getTSelecct();
+                System.out.println( "se ha seleccionado la tienda "+c.getTSelecct().toString()  );  
+                break;    
+
+                case 2:
                     System.out.println(" Creando una tienda dime: .\n");
                      String nom = HelpFunctions.inputString("nombre ? ");
                      String ciu = HelpFunctions.inputString("cidade ? ");
@@ -48,7 +68,7 @@ public class AD02 {
                         t=c.getTSelecct();
                         System.out.print("Se a creado unha tenda:\n" + t.toString());
                     break;
-                case 2:
+                case 3:
                     if (t != null) {
                         c.viewTiendaList();
                         String nomTienda = HelpFunctions.inputString(" introduzca nombre de la tienda.\n");
@@ -58,7 +78,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 3:
+                case 4:
                     if (t != null) {
                         c.viewCatProducto();
                         t.viewProductosList();
@@ -69,7 +89,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 4:
+                case 5:
                     if (t != null) {
                         t.viewProductosList();
                         int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
@@ -79,7 +99,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 5:
+                case 6:
                     if (t != null) {
                         t.viewEmpregadoList();
                         String nomEmp = HelpFunctions.inputString(" introduzca nombre del empleado.\n");
@@ -91,7 +111,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 6:
+                case 7:
                     if (t != null) {
                         t.viewEmpregadoList();
                         String nomEmp =  HelpFunctions.inputString(" introduzca nombre del empleado.\n");
@@ -101,7 +121,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 7:
+                case 8:
                     if (t != null) {
                         t.viewClienteList();
                         String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
@@ -113,7 +133,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 8:
+                case 9:
                     if (t != null) {
                         t.viewClienteList();
                         String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
@@ -123,7 +143,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 9:
+                case 10:
                     if (t != null) {
                         c.backup();
                         System.out.print("9. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).");
@@ -131,7 +151,7 @@ public class AD02 {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
-                case 10:
+                case 11:
                     c.leerTitulares();
                     System.out.print("10. - Ler os titulares do periódico El País. (Explícase máis abaixo)");
                     break;
