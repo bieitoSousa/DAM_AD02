@@ -16,7 +16,6 @@ public class AD02 {
         //Compañia c = Compañia.getInstance();; 
         Compania c = Compania.getInstance();
         Tienda t = null;
-       
         while (!salir) {
             if(c != null){encabezado += "\nBienvenidos a la franquicia  "+c.toString();}
             if(t != null){
@@ -39,7 +38,6 @@ public class AD02 {
                             + "10. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).\n"
                             + "11. - Ler os titulares do periódico El País. (Explícase máis abaixo)\n"
                             + "0. - Sair do programa.\n"
-
             );
 
             try {
@@ -146,14 +144,15 @@ public class AD02 {
                 case 10:
                     if (t != null) {
                         c.backup();
-                        System.out.print("9. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).");
+                        System.out.print("9. - Crear unha copia de seguriadade dos datos .");
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
                     break;
                 case 11:
+                    
+                    System.out.print("10. - Ler os titulares do periódico El País. ");
                     c.leerTitulares();
-                    System.out.print("10. - Ler os titulares do periódico El País. (Explícase máis abaixo)");
                     break;
                 default:
                     System.out.print(" Opcion no valida inserte [0] si quiere cancelar ");
