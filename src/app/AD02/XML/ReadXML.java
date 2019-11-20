@@ -11,7 +11,7 @@ public class ReadXML {
     try {
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser sp = spf.newSAXParser();
-        File f = new File (".\\app\\AD02\\XML\\XML_tarea.xml");
+        File f = new File (".\\src\\app\\AD02\\XML\\XML_tarea.xml");
         TitularHandlet th = new TitularHandlet();
         sp.parse(f,th);
       } catch (Exception e) {
@@ -23,7 +23,7 @@ public class ReadXML {
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
-            File f = new File (".\\app\\AD02\\XML\\XML_tarea.xml");
+            File f = new File (".\\src\\app\\AD02\\XML\\XML_tarea.xml");
             TitularHandlet th = new TitularHandlet();
             sp.parse(f,th);
           } catch (Exception e) {
