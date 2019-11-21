@@ -54,6 +54,7 @@ public class AD02 {
                 c.viewTiendaList();
                 System.out.println(" Seleccione una tienda : .\n");
                 String nomb = HelpFunctions.inputString("digame el nombre de la tienda ? ");
+
                 if(c.mapTienda.containsKey(nomb)){
                     c.setTSelecct(c.getTienda(nomb));
                     t=c.getTSelecct();
@@ -66,11 +67,13 @@ public class AD02 {
                     System.out.println(" Creando una tienda dime: .\n");
                      String nom = HelpFunctions.inputString("nombre ? ");
                      String ciu = HelpFunctions.inputString("cidade ? ");
+                     if(HelpFunctions.whiteSpace(nom) && HelpFunctions.whiteSpace(ciu)){
                         c.viewTiendaList();
                         c.addTienda(nom,ciu);
                         c.setTSelecct(c.getTienda(nom));
                         t=c.getTSelecct();
                         System.out.print("Se a creado unha tenda:\n" + t.toString());
+                     }
                     break;
                 case 3:
                     if (t != null) {
@@ -120,9 +123,10 @@ public class AD02 {
                         t.viewEmpregadoList();
                         String nomEmp = HelpFunctions.inputString(" introduzca nombre del empleado.\n");
                         String apelEmp = HelpFunctions.inputString(" introduzca apellido del empleado.\n");
-                        t.addEmpregado(nomEmp, apelEmp);
-                       
+                        if(HelpFunctions.whiteSpace(nomEmp) && HelpFunctions.whiteSpace(apelEmp)){
+                        t.addEmpregado(nomEmp, apelEmp);                      
                         System.out.print("Se añadido un empleado.\n");
+                        }
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -147,8 +151,10 @@ public class AD02 {
                         String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
                         String apelCli = HelpFunctions.inputString(" introduzca apellido del cliente.\n");
                         String mailCli = HelpFunctions.inputString(" introduzca email del cliente.\n");
+                        if(HelpFunctions.whiteSpace(nomCli) && HelpFunctions.whiteSpace(apelCli)&& HelpFunctions.whiteSpace(mailCli)){
                         t.addCliente(nomCli, apelCli, mailCli);
                         System.out.print(" Se ha añadido un cliente.");
+                        }
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }

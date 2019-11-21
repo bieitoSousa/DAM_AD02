@@ -55,6 +55,14 @@ public class HelpFunctions {
     }
         //reader.close(); // Cerramos el objeto Scanner
 
+    public static boolean whiteSpace (String msnj){
+        if (msnj.equals("")) {
+            return false;
+        }else if (msnj.contains(" ")){
+            return false;
+    }else return true;
+
+    }     
     public static int inputInt(String mensaje) {
             Scanner reader = new Scanner(System.in);
             System.out.print(mensaje);
