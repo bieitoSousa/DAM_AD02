@@ -29,15 +29,14 @@ public class Compania {
         return new Compania();
     }
 
-    public static void main(String[] args) {
-        Compania c = getInstance();
-
-        c.addTienda("4ttttt", "4Ccccc");
-        c.addTienda("4tttttttt", "4cccc");
-        c.addTienda("4tttttt", "4ccccc");
-        c.viewTiendaList();
-        c.backup();
-    }
+    // public static void main(String[] args) {
+    //     Compania c = getInstance();
+    //     c.addTienda("4ttttt", "4Ccccc");
+    //     c.addTienda("4tttttttt", "4cccc");
+    //     c.addTienda("4tttttt", "4ccccc");
+    //     c.viewTiendaList();
+    //     c.backup();
+    // }
 
     public void backup() { // sobreescribo datos en : datos.backap
         JSonMake.WriteObjJsonInFile(f, this);

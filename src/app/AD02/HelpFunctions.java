@@ -9,15 +9,15 @@ public class HelpFunctions {
     
 
 
-    public static void main(String[] args) throws Exception {
-       int letra1 = inputInt("dimeletra 1");
-       int letra2 = inputInt("dimeletra 1");
-       int letra3 = inputInt("dimeletra 1");
-       int letra4 = inputInt("dimeletra 1");
-       System.out.println(letra1+letra2+letra3+letra4);
+    // public static void main(String[] args) throws Exception {
+    //    int letra1 = inputInt("dimeletra 1");
+    //    int letra2 = inputInt("dimeletra 1");
+    //    int letra3 = inputInt("dimeletra 1");
+    //    int letra4 = inputInt("dimeletra 1");
+    //    System.out.println(letra1+letra2+letra3+letra4);
   
 
-    }
+    // }
 
 
 

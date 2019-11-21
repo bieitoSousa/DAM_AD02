@@ -2,6 +2,9 @@ package app.AD02;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.util.*;
 import app.AD02.*;
 import app.AD02.Producto;
@@ -11,12 +14,12 @@ public class AD02 {
     public static void main(String[] args) throws Exception {
         Scanner reader = new Scanner(System.in); // Invocamos un método sobre un objeto Scanner
         int op;
-        String encabezado="";
         boolean salir = false;
         //Compañia c = Compañia.getInstance();; 
         Compania c = Compania.getInstance();
         Tienda t = null;
         while (!salir) {
+            String encabezado="";
             if(c != null){encabezado += "\nBienvenidos a la franquicia  "+c.toString();}
             if(t != null){
                 encabezado += "\nTienda selecionada "+t.toString();
@@ -33,16 +36,16 @@ public class AD02 {
                             + "2. - Engadir unha tenda.\n"
                             + "3. - Eliminar unha tenda (elimínanse tódolos productos e empragados desta).\n"
                             + "4. - Engadir un producto a tenda.\n" + "5. - Eliminiar un producto a tenda.\n"
-                            + "6. - Engadir un empregado a tenda.\n" + "7. - Eliminar un emprega a tenda.\n"
+                            + "6. - Engadir un empregado a tenda.\n" + "7. - Eliminar un empregado a tenda.\n"
                             + "8. - Engadir un cliente.\n" + "9. - Eliminar un cliente.\n"
-                            + "10. - Crear unha copia de seguriadade dos datos (Explícase máis abaixo).\n"
-                            + "11. - Ler os titulares do periódico El País. (Explícase máis abaixo)\n"
+                            + "10. - Crear unha copia de seguriadade dos datos .\n"
+                            + "11. - Ler os titulares do periódico El País. \n"
                             + "0. - Sair do programa.\n"
             );
 
             try {
                 op = reader.nextInt();
-
+                
                 switch (op) {
                 case 0:
                     salir = true;
@@ -51,11 +54,14 @@ public class AD02 {
                 c.viewTiendaList();
                 System.out.println(" Seleccione una tienda : .\n");
                 String nomb = HelpFunctions.inputString("digame el nombre de la tienda ? ");
-                c.setTSelecct(c.getTienda(nomb));
-                t=c.getTSelecct();
-                System.out.println( "se ha seleccionado la tienda "+c.getTSelecct().toString()  );  
+                if(c.mapTienda.containsKey(nomb)){
+                    c.setTSelecct(c.getTienda(nomb));
+                    t=c.getTSelecct();
+                    System.out.println( "se ha seleccionado la tienda "+c.getTSelecct().toString()  );  
+                }else{
+                    System.out.println("valor incorrecto Tienda NO SELECIONADA");
+                }
                 break;    
-
                 case 2:
                     System.out.println(" Creando una tienda dime: .\n");
                      String nom = HelpFunctions.inputString("nombre ? ");
@@ -70,8 +76,10 @@ public class AD02 {
                     if (t != null) {
                         c.viewTiendaList();
                         String nomTienda = HelpFunctions.inputString(" introduzca nombre de la tienda.\n");
-                        c.deleteTienda(nomTienda);
-                        System.out.print(" Se ha eliminado la tienda" + nomTienda + ").\n");
+                        if(c.mapTienda.containsKey(nomTienda)){
+                            c.deleteTienda(nomTienda);
+                            System.out.print(" Se ha eliminado los productos y empleados de la tienda" + nomTienda + ").\n");
+                        }else{ System.out.println("valor incorrecto los productos y empleados de la Tienda NO ELIMINADOS");}
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -81,8 +89,13 @@ public class AD02 {
                         c.viewCatProducto();
                         t.viewProductosList();
                         int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
-                        t.addProducto(idProducto);
-                        System.out.print(" SE ha engadir un producto a tenda.\n");
+                        if(c.catalogoProductos.containsKey(idProducto)){
+                            t.addProducto(idProducto);
+                            System.out.print(" SE ha añadido un producto a de la tienda : "+ t +" .\n");
+                        }else{
+                            System.out.print(" valor incorrecto PRODUCTO NO AÑADIDO.\n");
+                        }
+                       
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -91,8 +104,13 @@ public class AD02 {
                     if (t != null) {
                         t.viewProductosList();
                         int  idProducto = HelpFunctions.inputInt(" introduzca id del producto.\n");
-                        t.deleteProducto(idProducto);
-                        System.out.print("4. - Eliminiar un producto a tenda.\n");
+                        if(t.mapProducto.containsKey(idProducto)){
+                            t.deleteProducto(idProducto);
+                        System.out.print("Se a eliminado un producto de la tienda : "+ t +" .\n");
+                        }else{
+                            System.out.print(" valor incorrecto PRODUCTO NO elimniado.\n");
+                        }
+                       
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -113,8 +131,12 @@ public class AD02 {
                     if (t != null) {
                         t.viewEmpregadoList();
                         String nomEmp =  HelpFunctions.inputString(" introduzca nombre del empleado.\n");
-                        t.deleteEmpregado(nomEmp);
-                        System.out.print("6. - Eliminar un empregado a tenda.\n");
+                        if(t.mapEmpleado.containsKey(nomEmp)){
+                            t.deleteEmpregado(nomEmp);
+                        System.out.print("Se a eliminado el empleado de la tienda : "+ t +" .\n");
+                        }else{
+                            System.out.print(" valor incorrecto EMPLEADO NO elimniado.\n");
+                        }
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -135,8 +157,12 @@ public class AD02 {
                     if (t != null) {
                         t.viewClienteList();
                         String nomCli = HelpFunctions.inputString(" introduzca nombre del cliente.\n");
-                        t.deleteCliente(nomCli);
-                        System.out.print("8. - Eliminar un cliente.");
+                        if(t.mapCliente.containsKey(nomCli)){
+                            t.deleteCliente(nomCli);
+                        System.out.print("Se a eliminado el Cliente de la tienda : "+ t +" .\n");
+                        }else{
+                            System.out.print(" valor incorrecto CLIENTE NO elimniado.\n");
+                        }
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }
@@ -144,7 +170,7 @@ public class AD02 {
                 case 10:
                     if (t != null) {
                         c.backup();
-                        System.out.print("9. - Crear unha copia de seguriadade dos datos .");
+                        System.out.print(" copia de seguriadade dos datos creada  .");
                     } else {
                         System.out.print("Primero deves de crear una tienda");
                     }

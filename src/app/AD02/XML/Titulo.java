@@ -7,5 +7,8 @@ String contenido;
 public Titulo(String cont){
 this.contenido = cont;
 }
+public String toString(){
+return "[" + this.contenido + "]";
 
+}
 }

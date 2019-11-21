@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import java.io.*;
 
 class TitularHandlet extends DefaultHandler{
 
-	 private ArrayList<Titulo> titulos = new ArrayList();
+	 private ArrayList<Titulo> titulos = new ArrayList<>();
      //private Titulo titulo;
      private StringBuilder buffer=new StringBuilder();
      public ArrayList<Titulo> getTitulos() {
@@ -35,9 +36,7 @@ class TitularHandlet extends DefaultHandler{
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         switch(qName){
             case "title":
-            //inicia el buffer
-           
-          System.out.println( uri);
+            buffer.delete(0,buffer.length());
                 break;
            
         }
